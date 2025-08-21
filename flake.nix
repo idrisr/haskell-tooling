@@ -9,6 +9,8 @@
         doc = pkgs.callPackage ./doc { };
       in
       {
-        packages = { default = doc; };
+        packages = rec {
+          inherit doc;
+        };
       });
 }
