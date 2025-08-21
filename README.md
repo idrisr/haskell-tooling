@@ -1,4 +1,4 @@
-# Github Notes
+# Haskell Tooling
 
 These are my notes to explain the haskell tooling and versioning logic of cabal,
 stack, base, haskell language server, nix... to myself. You might find it
