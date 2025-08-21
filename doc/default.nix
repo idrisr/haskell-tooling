@@ -52,6 +52,6 @@ stdenvNoCC.mkDerivation {
 
   installPhase = ''
     mkdir -p $out
-    mv build/00-main.pdf $out/
+    mv build/00-main.pdf $out/haskell-tooling.pdf
   '';
 }
