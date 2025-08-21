@@ -12,7 +12,10 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
 
@@ -22,7 +25,9 @@ jobs:
       - name: Build PDF
         run: nix build .#doc
 
+      # Only upload the artifact from Linux build
       - name: Upload artifact
+        if: matrix.os == 'ubuntu-latest'
         uses: actions/upload-pages-artifact@v3
         with:
           path: result
