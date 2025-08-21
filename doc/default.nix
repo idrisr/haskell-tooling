@@ -40,12 +40,6 @@ stdenvNoCC.mkDerivation {
   version = "0.1.0";
   src = ./src;
 
-  buildInputs = [
-    mytex
-    python312Packages.pygments
-    pkgs.biber
-  ];
-
   nativeBuildInputs = [
     mytex
     pkgs.biber
