@@ -9,7 +9,7 @@
         doc = pkgs.callPackage ./doc { };
       in
       {
-        packages = rec {
+        packages = {
           inherit doc;
         };
       });

@@ -19,13 +19,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Nix
-        uses: cachix/install-nix-action@v27
+      - name: Install Nix (Determinate Systems)
+        uses: DeterminateSystems/nix-installer-action@v14
+        with:
+          extra-conf: experimental-features = nix-command flakes
 
       - name: Build PDF
         run: nix build .#doc
 
-      # Only upload the artifact from Linux build
+      # Only upload artifact from Linux build
       - name: Upload artifact
         if: matrix.os == 'ubuntu-latest'
         uses: actions/upload-pages-artifact@v3
